@@ -1,0 +1,259 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# CASTNET Global Rogue CID Registry
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# Community-maintained database of confirmed rogue Cell IDs associated with
+# IMSI catcher / rogue base station activity worldwide.
+#
+# PRIVACY RULES — STRICTLY ENFORCED:
+#   ✅ CID, TAC, MCC, MNC, carrier, country
+#   ✅ Detection method and confidence level
+#   ✅ Hardware profile (if determinable)
+#   ✅ Approximate region (city/suburb level only)
+#   ❌ NO GPS coordinates
+#   ❌ NO contributor identity
+#   ❌ NO node IDs
+#   ❌ NO timestamps more precise than month/year
+#
+# CONFIDENCE LEVELS:
+#   HIGH      — Multiple independent detection methods, cross-verified
+#   MEDIUM    — Single detection method, consistent observations
+#   LOW       — Preliminary — under investigation
+#
+# HOW TO CONTRIBUTE:
+#   See CONTRIBUTING.md — submit a pull request with new entries.
+#   Minimum evidence required for HIGH confidence:
+#     - Confirmed absence from OpenCelliD or anomalous position
+#     - At least one behavioural indicator (timer, harvesting, cipher)
+#     - Observed across multiple independent capture sessions
+#
+# ══════════════════════════════════════════════════════════════════════════════
+
+schema_version: "1.0"
+last_updated: "2026-05"
+total_entries: 15
+
+confirmed_rogue_cids:
+
+  # ── Cranbourne East, Victoria, Australia ────────────────────────────────────
+  # Two-device Harris commercial IMSI catcher operation confirmed.
+  # Regulatory actions: ACMA ENQ-1851DVJH04, TIO 2026-03-04898
+  # Full forensic analysis: github.com/JulianBurns85/rayhunter-threat-analyzer
+
+  - cid: 137713195
+    tac: 12385
+    mcc: 505
+    mnc: "01"
+    carrier: "Telstra AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-01"
+    detection_methods:
+      - "RRC metronomic periodicity (210.182s ±0.139s, 333+ events)"
+      - "Cross-carrier simultaneous release (zero-gap)"
+      - "T1 hold timer 610.6s ±0.55s shared signature"
+      - "OpenCelliD anomaly"
+    confidence: "HIGH"
+    hardware_profile: "Harris HailStorm / StingRay II"
+    observations: 4794
+    notes: "Primary Telstra-side rogue CID. Highest observation count."
+
+  - cid: 137713175
+    tac: 12385
+    mcc: 505
+    mnc: "01"
+    carrier: "Telstra AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-01"
+    detection_methods:
+      - "RRC metronomic periodicity"
+      - "OpenCelliD geo-located"
+      - "Cross-carrier simultaneous release"
+    confidence: "HIGH"
+    hardware_profile: "Harris HailStorm / StingRay II"
+    observations: 2187
+    notes: "OpenCelliD geo-located ~331m from subject premises."
+
+  - cid: 137713165
+    tac: 12385
+    mcc: 505
+    mnc: "01"
+    carrier: "Telstra AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-01"
+    detection_methods:
+      - "RRC metronomic periodicity"
+      - "Cross-carrier simultaneous release"
+    confidence: "HIGH"
+    hardware_profile: "Harris HailStorm / StingRay II"
+    observations: 1665
+    notes: ""
+
+  - cid: 137713155
+    tac: 12385
+    mcc: 505
+    mnc: "01"
+    carrier: "Telstra AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-01"
+    detection_methods:
+      - "RRC metronomic periodicity"
+      - "Cross-carrier simultaneous release"
+    confidence: "HIGH"
+    hardware_profile: "Harris HailStorm / StingRay II"
+    observations: 312
+    notes: ""
+
+  - cid: 135836191
+    tac: 12385
+    mcc: 505
+    mnc: "01"
+    carrier: "Telstra AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2025-10"
+    detection_methods:
+      - "OpenCelliD geo-located"
+      - "RRC periodicity"
+    confidence: "HIGH"
+    hardware_profile: "Harris HailStorm / StingRay II"
+    observations: 2727
+    notes: "OpenCelliD geo-located Collison Road, CE (~912m). Oct 2025."
+
+  - cid: 8409357
+    tac: 30336
+    mcc: 505
+    mnc: "03"
+    carrier: "Vodafone AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-01"
+    detection_methods:
+      - "RRC metronomic periodicity (40.553s ±0.327s)"
+      - "UEInformationRequest-r9 harvesting (100% correlation, 46x baseline)"
+      - "Cross-carrier simultaneous release"
+      - "T1 hold timer 610.6s shared with Telstra device"
+    confidence: "HIGH"
+    hardware_profile: "Harris HailStorm / StingRay II"
+    observations: 891
+    notes: "Vodafone-side device. Shared T1 confirms single RayFish controller."
+
+  - cid: 8409367
+    tac: 30336
+    mcc: 505
+    mnc: "03"
+    carrier: "Vodafone AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-01"
+    detection_methods:
+      - "RRC metronomic periodicity"
+      - "UEInformationRequest-r9 harvesting"
+    confidence: "HIGH"
+    hardware_profile: "Harris HailStorm / StingRay II"
+    observations: 445
+    notes: ""
+
+  - cid: 8409387
+    tac: 30336
+    mcc: 505
+    mnc: "03"
+    carrier: "Vodafone AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-01"
+    detection_methods:
+      - "RRC metronomic periodicity"
+      - "UEInformationRequest-r9 harvesting"
+    confidence: "HIGH"
+    hardware_profile: "Harris HailStorm / StingRay II"
+    observations: 334
+    notes: ""
+
+  - cid: 8409397
+    tac: 30336
+    mcc: 505
+    mnc: "03"
+    carrier: "Vodafone AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-02"
+    detection_methods:
+      - "RRC metronomic periodicity"
+      - "Anomalous dwell pattern (sub-2s departures)"
+    confidence: "MEDIUM"
+    hardware_profile: "Harris HailStorm / StingRay II"
+    observations: 5
+    notes: "Anomalous — only 5 observations, rapid sub-2s departures. Medium priority."
+
+  - cid: 8666381
+    tac: 30336
+    mcc: 505
+    mnc: "03"
+    carrier: "Vodafone AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-05"
+    detection_methods:
+      - "Post-ACMA-inspection appearance"
+      - "Zero OpenCelliD global observations"
+      - "RRC periodicity consistent with Harris profile"
+    confidence: "HIGH"
+    hardware_profile: "Harris — post-reconfiguration"
+    observations: 67
+    notes: "Appeared immediately after ACMA field inspection 8 May 2026. Zero global OpenCelliD hits."
+
+  - cid: 8666391
+    tac: 30336
+    mcc: 505
+    mnc: "03"
+    carrier: "Vodafone AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-05"
+    detection_methods:
+      - "Post-ACMA-inspection appearance"
+      - "Zero OpenCelliD global observations"
+    confidence: "HIGH"
+    hardware_profile: "Harris — post-reconfiguration"
+    observations: 54
+    notes: "Post-ACMA reconfiguration trio. See 8666381."
+
+  - cid: 8666411
+    tac: 30336
+    mcc: 505
+    mnc: "03"
+    carrier: "Vodafone AU"
+    country: "AU"
+    region: "Cranbourne East, Victoria"
+    first_confirmed: "2026-05"
+    detection_methods:
+      - "Post-ACMA-inspection appearance"
+      - "Zero OpenCelliD global observations"
+    confidence: "HIGH"
+    hardware_profile: "Harris — post-reconfiguration"
+    observations: 48
+    notes: "Post-ACMA reconfiguration trio. See 8666381."
+
+  - cid: 135836171
+    tac: 12385
+    mcc: 505
+    mnc: "01"
+    carrier: "Telstra AU"
+    country: "AU"
+    region: "Casey Fields area, Victoria"
+    first_confirmed: "2025-08"
+    detection_methods:
+      - "OpenCelliD geo-located"
+      - "Movement corridor analysis"
+    confidence: "HIGH"
+    hardware_profile: "Harris HailStorm / StingRay II"
+    observations: 28
+    notes: "OpenCelliD geo-located Casey Fields (~2,424m). Aug 2025 — earliest confirmed position in movement corridor."
+
+  # ── Movement corridor summary ────────────────────────────────────────────────
+  # Casey Fields (Aug 2025) → Collison Road (Oct 2025) → Prendergast Ave (Apr 2026)
+  # Consistent with mobile unit progressively closing on subject premises over 8 months.
